@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>ZANNAH REPORTERS</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta name="description" content="">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="animate.min.css" rel="stylesheet">
+        <link href="owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="style.css" rel="stylesheet">
+        <style>
+            .teamImg {  
+                height: 200px;
+            }
+            .about_cacpe {
+                text-align: justify;
+            }
+            .contact-card {
+                background-color: #edf2f7;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 250px;
+                text-align: center;
+            }
+            .contact-card h2 {
+                font-size: 1.5rem;
+                color: #1a202c;
+                margin-bottom: 10px;
+            }
+            .contact-card p {
+                margin: 5px 0;
+                font-size: 0.8rem;
+                color: #4a5568;
+            }
+            .contact-card p.phone {
+                color: #e53e3e;
+                font-weight: bold;
+            }
+            .contact-card a {
+                color: #3182ce;
+                text-decoration: none;
+            }
+            .contact-card a:hover {
+                text-decoration: underline;
+            }
+            .project_one {
+                width: 300px;
+                height:300px;
+            }
+            /* Dark Theme */
+            body.dark-mode {
+                background-color: #000000;
+                color: white;
+            }
+
+            /* Light Theme */
+            body:not(.dark-mode) {
+                background-color: #fff;
+                color: black;
+            }
+
+            /* Floating Button Container */
+            .theme-toggle-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+                border-radius: 50%;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 60px;
+                height: 60px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            /* Button Hover Effect */
+            .theme-toggle-btn:hover {
+                background-color: #f0f0f0;
+                transform: scale(1.1);
+            }
+
+            /* Switch Wrapper */
+            .toggle-switch {
+                position: relative;
+                display: inline-block;
+                width: 50px;
+                height: 25px;
+            }
+
+            /* Hide Default Checkbox */
+            .toggle-switch input {
+                display: none;
+            }
+
+            /* Slider Background */
+            .slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 25px;
+            }
+
+            /* When Checked */
+            .toggle-switch input:checked + .slider {
+                background-color: #007bff;
+            }
+
+            /* Slider Circle */
+            .slider:before {
+                content: '';
+                position: absolute;
+                height: 18px;
+                width: 18px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+            }
+
+            /* Move Circle When Checked */
+            .toggle-switch input:checked + .slider:before {
+                transform: translateX(25px);
+            }
+
+            /* Icon Styling */
+            .theme-icon {
+                font-size: 20px;
+                position: absolute;
+                top: 50%;
+                right: 70px; /* Adjust to align next to the button */
+                transform: translateY(-50%);
+                transition: color 0.3s ease;
+            }
+
+            /* Light Mode Icon (Default) */
+            body:not(.dark-mode) .theme-icon {
+                color: #f39c12; /* Yellow for light mode */
+            }
+
+            /* Dark Mode Icon */
+            body.dark-mode .theme-icon {
+                color: #08d21c; /* Green for dark mode */
+            }
+
+            .last {
+                color: green;
+            }
+
+            .volunteer {
+                border-radius: 3px;
+                color: #08d21c;
+                border-color: #08d21c;
+                border-style: solid;
+            }
+
+            /* Generic slider container for both sections */
+            .my-slider-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                max-width: 600px; /* Adjust as needed */
+                margin: auto;
+            }
+            .my-slider {
+                display: flex;
+                overflow: hidden;
+                width: 100%;
+                position: relative;
+                transition: transform 0.5s ease-in-out;
+                scroll-behavior: smooth;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .my-slider::-webkit-scrollbar {
+                display: none;
+            }
+
+            .my-slide-item {
+                min-width: 100%;
+                flex: 0 0 100%; /* Each slide takes full width of the container */
+                padding: 1rem;
+                box-sizing: border-box;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+            }
+            /* Images within slider items */
+            .my-slide-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0.5rem; /* Apply rounded corners to images */
+            }
+
+            /* Content overlay for click-to-reveal */
+            .my-content-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                background-color: rgba(255, 255, 255, 0.95);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 2rem;
+                box-sizing: border-box;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+                border-radius: 0.5rem;
+                text-align: center;
+            }
+            .my-content-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .my-content-overlay h5 {
+                margin-bottom: 0.75rem;
+            }
+            .my-content-overlay p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                text-align: justify;
+            }
+            .my-content-overlay::-webkit-scrollbar {
+                width: 8px;
+            }
+            .my-content-overlay::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            .my-content-overlay::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 10px;
+            }
+            .my-content-overlay::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+
+            /* Slider navigation buttons */
+            .slider-btn {
+                background-color: rgba(6, 142, 73, 0.8);
+                color: white;
+                width: 40px; /* Slightly larger buttons */
+                height: 40px;
+                border: none;
+                padding: 0; /* Remove default padding to control size with width/height */
+                cursor: pointer;
+                font-size: 1.5rem; /* Larger arrow size */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                z-index: 10;
+                border-radius: 50%; /* Fully rounded buttons */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                position: absolute; /* Absolute positioning for prev/next buttons */
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .slider-btn:hover {
+                background-color: rgba(6, 142, 73, 1);
+                transform: translateY(-50%) scale(1.05);
+            }
+
+            /* Specific positioning for prev/next buttons */
+            .prev-btn {
+                left: 0.5rem;
+            }
+
+            .next-btn {
+                right: 0.5rem;
+            }
+
+
+            .executive-team-container {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+            .executive-member {
+                text-align: center;
+                cursor: pointer;
+            }
+            .executive-member img {
+                width: 210px;
+                height: 210px;
+                border-radius: 5px;
+                transition: transform 0.3s;
+            }
+            .executive-member img:hover {
+                transform: scale(1.1);
+            }
+            .executive-details {
+                display: none;
+                text-align: center;
+                margin-top: 10px;
+                background: #f9f9f9;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .vision-mission-container {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+            }
+            .vision-mission-item {
+                background-color: green;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                transition: transform 0.3s, background-color 0.3s;
+                width: 250px;
+                cursor: pointer;
+            }
+            .vision-mission-item:hover {
+                background-color: #045d04;
+                transform: scale(1.05);
+            }
+            .new {
+                border-radius: 7px;
+                border-color: #06b318;
+            }
+            .rotate-image {
+                width: 200px;
+                height: auto;
+                transition: transform 0.6s ease; /* Smooth rotation */
+                cursor: pointer;
+            }
+                .rotated {
+                transform: rotate(360deg);
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid nav-bar p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="display-5 text-secondary m-0"><img src="logo.jpg" class="img-fluid teamImg" alt=""> <font color="green">ZANNAH REPORTERS</font></h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <style class="green"></style>
+                        <div class="navbar-nav ms-auto py-0">
+                            <a href="index.html" class="nav-item nav-link active"><font color="green">Home</font></a>
+                            <a href="#about" class="nav-item nav-link"><font color="green">About</font></a>
+                            <a href="#team" class="nav-item nav-link"><font color="green">Team</font></a>
+                            <a href="#projects" class="nav-item nav-link"><font color="green">Projects</font></a>
+                            <a href="#partners" class="nav-item nav-link"><font color="green">Partners</font></a>
+                            <a href="#contacts" class="nav-item nav-link"><font color="green">Contact Us</font></a>
+                        </div>
+                    </style>                                             
+                </div>
+                
+            </nav>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Carousel Start -->
+        <div class="container-fluid carousel-header vh-100 px-0">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="about.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <!--<h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Over 20 million People are displaced yearly by climate disasters</h4>-->
+                                <h1 class="display-1 text-capitalize text-white mb-4">Welcome to Zannah Reporters!</h1>
+                                <p class="mb-5 fs-5">A dynamic and youth-driven news and publicity organization dedicated to documenting, promoting, and broadcasting the impactful works, projects, programs, events, and activities of Hon. Abdulmalik Zubairu (Zannah Bungudu).</p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <button class="new" style="background-color: #06b318;"><font size="+2"><a href="#contacts"><font color="white"><b>Join Us</b></font></a></a></font></button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="logo.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <!--<h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Over 20 million People are displaced yearly by climate disasters</h4>-->
+                                <h1 class="display-1 text-capitalize text-white mb-4">Welcome to Zannah Reporters!</h1>
+                                <p class="mb-5 fs-5">A dynamic and youth-driven news and publicity organization dedicated to documenting, promoting, and broadcasting the impactful works, projects, programs, events, and activities of Hon. Abdulmalik Zubairu (Zannah Bungudu).</p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <button class="new" style="background-color: #06b318;"><font size="+2"><a href="#contacts"><font color="white"><b>Join Us</b></font></a></font></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        </div>
+        <!-- Carousel End -->
+
+        
+
+        <!-- About Start -->
+        <div class="container-fluid py-5" id="about">
+            <div class="container py-5">
+                <img src="about.jpg" class="img-fluid w-100" style="margin-bottom: -7px;" alt="Image"><p></p>
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sub-style">
+                        <h5 class="sub-title text-primary px-3"><font color="green"><b>ABOUT</b></font></h5>
+                    </div>
+                
+                        <p class="mb-4" style="text-align: justify;">The Zannah Reporters (ZR) is a dynamic and youth-driven news and publicity organization dedicated to documenting, promoting, and broadcasting the impactful works, projects, programs, events, and activities of Hon. Abdulmalik Zubairu (Zannah Bungudu).<br><br> The Movement is driven by thousands of passionate youths from various sectors who believe in the transformative leadership and people-centered governance of Hon. Zannah. We serve as a bridge between his achievements and the public, ensuring that every project, community engagement, and developmental initiative receives the visibility and recognition it deserves. <br><br>Through our media platforms, we aim to inspire civic engagement, promote transparency, and strengthen community awareness about the positive changes taking place under his representation. <br><br> The Movement is backed by thousands of youths from across Zamfara State, united by a common goal to amplify the voice and vision of a leader who truly represents the hopes and aspirations of his people.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="sub-style">
+                <h5 class="sub-title text-primary px-3"><font color="green"><b>VISION AND MISSION</b></font></h5>
+            </div>
+                   
+            <div class="vision-mission-container">
+                <div class="vision-mission-item" id="vision">
+                    <h3 style="color: #010901;">Our Vision</h3>
+                    <p>To become a leading youth-driven media platform that promotes good governance, transparency, and positive leadership by showcasing the impactful works, values, and developmental achievements of Hon. Zannah Bungudu across Zamfara State and beyond.</p>
+                </div>
+                <div class="vision-mission-item" id="mission">
+                    <h3 style="color: #010901;">Our Mission</h3>
+                    <p>To Inspire, and empower communities through credible news reporting, media advocacy, and strategic publicity focused on the programs, projects, and initiatives of Hon. Abdulmalik  Zubairu (Zannah Bungudu).</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="sub-style">
+                <h5 class="sub-title text-primary px-3"><font color="green"><b>SERVICES</b></font></h5>
+            </div>
+                <p></p>
+            <div class="container-fluid counter-facts">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fas fa-passport"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Media Coverage and Publicity</h3>
+                                        
+                                    <p style="text-align: center;">We provide full media coverage for all programs, projects, events, and official visits undertaken by Hon. Abdulmalik  Zubairu Zannah Bungudu. Through photography, videography, live reporting, and digital publications, we ensure that every developmental activity reaches a wider audience both within and outside Zamfara State.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Public Awareness and Community Engagement</h3>
+                                        
+                                        <p style="text-align: center;">Zannah Reporters (ZR) actively promotes public awareness about the achievements and initiatives of Hon. Abdulmalik  Zubairu Zannan Bungudu through campaigns, press releases, and social media outreach. We engage directly with communities to highlight real impacts and encourage public participation in governance and development activities.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Youth Mobilization and Media Advocacy</h3>
+                                        
+                                        <p style="text-align: center;">Driven by thousands of passionate youths, the Movement organizes sensitization programs, workshops, and online campaigns aimed at empowering young people with leadership, communication, and advocacy skills. We serve as a platform for youth voices and a channel for promoting peace, unity, and social development under the visionary leadership of Hon. Zannah Bungudu.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Documentation and Archiving of Developmental Projects</h3>
+                                       
+                                        <p style="text-align: center;">We maintain a detailed and organized archive of Hon. Abdulmalik  Zubairu Zannah Bungudu’s projects, programs, and community efforts. This documentation serves as a credible reference for transparency, accountability, and historical record-keeping, ensuring that every developmental milestone is preserved for future <br>generations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Strategic Communication and Public Relations</h3>
+                                        
+                                        <p style="text-align: center;">Zannah Reporters serves as an official communication bridge between Hon. Zannah Bungudu and the public. Through effective public relations strategies, we manage official media statements, coordinate interviews, and craft narratives that promote unity, trust, and understanding between leadership and constituents.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+       
+        
+
+
+        <div class="container-fluid features overflow-hidden py-5" id="team">
+            <div class="container">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sub-style">
+                        <h5 class="sub-title text-primary px-3"><font color="green"><b>TEAM</b></font></h5>
+                    </div>
+                    <h1 class="display-5 mb-4"><font color="green">Meet our exceptionally capacitated Team</font></h1>
+                    <p class="mb-0"></p>
+                </div>
+                <center>
+                    <div class="row g-4 justify-content-center text-center"></div>
+                        <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                                <img src="grand_patron.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">Hon. (Dr.) Abdulmalik Zubairu</font></h5>
+                                <p class="mb-3">GRAND PATRON</p>
+                                <p class="mb-4" style="text-align: justify;"></p>
+                                <!-- <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-4" style="text-align: justify;">Hon. (Dr.) Abdulmalik Zubairu, also known as Zannah Bungudu, is the current Member representing Maru/Bungudu federal constituency at the 10th National Assembly in Abuja. Born on September 27, 1978, in Bungudu, Zamfara State, he has a rich educational background, including a Bachelor's degree in Political Science from Bayero University Kano and a Master's degree in International Affairs and Diplomacy from Usman Danfodio University, Sokoto. <br>He began his career in civil service in 1998 with the Zamfara State Ministry for Local Government and Chieftaincy Affairs, eventually rising to the rank of Senior Higher Executive Officer Administration. His political career started in school, where he held various leadership positions. He joined partisan politics in 2013 with the All Nigeria Peoples Party (ANPP), which later merged into the All Progressives Congress (APC). He was elected to the 8th National Assembly in 2015 and re-elected for another term, although the elections were later nullified by the apex court. <br> Dr. Zubairu is known for his significant contributions to human and social development in Zamfara State and Northern Nigeria, including efforts against banditry, sponsoring medical treatments, supporting religious activities, and providing scholarships. He has received numerous awards and traditional titles for his service. He is also the chairman/CEO of ASAD Universal Concept Ltd and other businesses. Dr. Zubairu is happily married and blessed with children.</p>
+                
+                </center>
+
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="Abu Bello Turaki.jpg" class="img-fluid teamImg" alt="Image" id="myImage">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">HON. ABU BELLO TURAKI</font></h5>
+                                <p class="mb-3">PATRON</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Yahuza Hambali is a passionate climate activist, environmental advocate, and community mobilization expert, dedicated to driving sustainable solutions in Nigeria and beyond. As the Founder & CEO of the Civil Alliance for Climate Protection and Education (CACPE), he leads initiatives that promote climate action, smart agriculture, and clean energy solutions. <br>With a strong background in environmental management, Yahuza has successfully mobilized communities, empowered youth, and influenced policies to address climate change challenges. He is the current Africa Director for Climate and Environment at International Parliament for Safety, Peace and Justice, Africa. He has collaborated with national and international organizations to implement impactful projects on green economy, climate education, and renewable energy. <br><br>Yahuza is a skilled project manager, strategic thinker, and advocate for climate justice. His work focuses on bridging the gap between policies and grassroots action, ensuring vulnerable communities are equipped with sustainable solutions. He remains committed to fostering a resilient and eco-conscious society through innovation, advocacy, and collaboration.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="Aminu Lawal Bungudu.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">HON. AMINU LAWAL BUNGUDU</font></h5>
+                                <p class="mb-3">PATRON</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Yahuza Hambali is a passionate climate activist, environmental advocate, and community mobilization expert, dedicated to driving sustainable solutions in Nigeria and beyond. As the Founder & CEO of the Civil Alliance for Climate Protection and Education (CACPE), he leads initiatives that promote climate action, smart agriculture, and clean energy solutions. <br>With a strong background in environmental management, Yahuza has successfully mobilized communities, empowered youth, and influenced policies to address climate change challenges. He is the current Africa Director for Climate and Environment at International Parliament for Safety, Peace and Justice, Africa. He has collaborated with national and international organizations to implement impactful projects on green economy, climate education, and renewable energy. <br><br>Yahuza is a skilled project manager, strategic thinker, and advocate for climate justice. His work focuses on bridging the gap between policies and grassroots action, ensuring vulnerable communities are equipped with sustainable solutions. He remains committed to fostering a resilient and eco-conscious society through innovation, advocacy, and collaboration.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                <div class="row g-4 justify-content-center text-center">
+                
+                
+                    
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="shamsu kasida.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">SHAMSU SHEHU KASIDA</font></h5>
+                                <p class="mb-3">SPECIAL ADVISER</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Date of Birth: January 1, 1998 <br>Place of Birth: Tsafe Local Government Area, Zamfara State, Nigeria. <br> Umar M. Bawa was born on January 1, 1998, in Tsafe Local Government Area of Zamfara State, Nigeria. He began his political journey in 2012 under the mentorship of the late Engr. Aliyu Idris Lalo (Durbin Gusau). <br> Before the death of his mentor, Umar continued the political movement and became the Chairman of the Lalo Social Media Organization (LASMO) in 2017. <br> His dedication and leadership later led him to play an active role in the political movement of Hon. Kabiru Amadu (Mai Palace), known for its slogan “Allah Shi Zai Bamu.” During this campaign, he served as the State Vice Chairman. <br> In 2019, Umar was appointed as the Secretary of the Mai Palace Public Awareness Committee (MPAC), where he contributed to grassroots mobilization and political awareness. <br> By 2022, he joined the political campaign of Governor Bello Mohammed Matawalle, serving as the Secretary of Matawalle New Media Promoters, a group focused on digital political engagement and media strategy. <br> That same year, he also became the Secretary of the 7-7 For Matawalle 2 Times Organization, demonstrating his commitment to strengthening the governor’s re-election efforts. <br> In 2022, Umar took another leadership step by leading a new initiative under the Hon. Yazeed Shehu Danfulani (Commissioner of Commerce), where he served as the Director General of the Yazeed Enlightenment Forum. <br> From 2023 to the present, he has been at the forefront of establishing and leading the Yazeed Trustee Organization, a political and social group focused on community development, youth empowerment, and public enlightenment. <br> Umar M. Bawa is a young, dynamic, and visionary political leader from Zamfara State with extensive experience in media coordination, political mobilization, and youth engagement. Through his various leadership roles, he continues to inspire and empower young people to participate actively in politics and governance.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="basheer bello auki.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">BASHAR BELLO AUKI</font></h5>
+                                <p class="mb-3">SPECIAL ADVISER</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Yahuza Hambali is a passionate climate activist, environmental advocate, and community mobilization expert, dedicated to driving sustainable solutions in Nigeria and beyond. As the Founder & CEO of the Civil Alliance for Climate Protection and Education (CACPE), he leads initiatives that promote climate action, smart agriculture, and clean energy solutions. <br>With a strong background in environmental management, Yahuza has successfully mobilized communities, empowered youth, and influenced policies to address climate change challenges. He is the current Africa Director for Climate and Environment at International Parliament for Safety, Peace and Justice, Africa. He has collaborated with national and international organizations to implement impactful projects on green economy, climate education, and renewable energy. <br><br>Yahuza is a skilled project manager, strategic thinker, and advocate for climate justice. His work focuses on bridging the gap between policies and grassroots action, ensuring vulnerable communities are equipped with sustainable solutions. He remains committed to fostering a resilient and eco-conscious society through innovation, advocacy, and collaboration.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="idiris rikiji.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">IDIRIS RIKIJI</font></h5>
+                                <p class="mb-3">SPECIAL ADVISER</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Dr. Salisu Dalhatu holds a PhD in Environmental Management, specializing in Soil Erosion and Conservation. As Deputy Project Coordinator and Systems Strengthening Lead for the AGILE Project in Zamfara State, he drives initiatives empowering communities and promoting sustainability. Previously, he served as a UNICEF Consultant and Yobe State Coordinator for the TaRL Programme, excelling in project implementation, capacity building, and evaluation. <br><br>With over two decades of experience, Dr. Dalhatu has held key roles at Zamfara State College of Education, including Director of Entrepreneurship and Dean of Student Affairs. A prolific researcher, he has published widely and secured grants, including the TETFund IBR Grant and participation in the NiGrant Project at the University of Cologne, Germany. A certified project management consultant, he collaborates with UNICEF, FCDO, and the World Bank, advancing education, environmental sustainability, and development. His expertise makes him a vital member of our Board of Trustees.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="abdulrahman zubairu.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">ABDULRAHMAN ZUBAIRU</font></h5>
+                                <p class="mb-3">SPECIAL ADVISER</p>
+                                <!-- <p class="mb-4" style="text-align: justify;">Dr. Salisu Dalhatu holds a PhD in Environmental Management, specializing in Soil Erosion and Conservation. As Deputy Project Coordinator and Systems Strengthening Lead for the AGILE Project in Zamfara State, he drives initiatives empowering communities and promoting sustainability. Previously, he served as a UNICEF Consultant and Yobe State Coordinator for the TaRL Programme, excelling in project implementation, capacity building, and evaluation. <br><br>With over two decades of experience, Dr. Dalhatu has held key roles at Zamfara State College of Education, including Director of Entrepreneurship and Dean of Student Affairs. A prolific researcher, he has published widely and secured grants, including the TETFund IBR Grant and participation in the NiGrant Project at the University of Cologne, Germany. A certified project management consultant, he collaborates with UNICEF, FCDO, and the World Bank, advancing education, environmental sustainability, and development. His expertise makes him a vital member of our Board of Trustees.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="umar_bawa.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">UMAR M. BAWA</font></h5>
+                                <p class="mb-3">STATE CHAIRMAN - ZANNAH REPORTERS</p> 
+                                <p class="mb-4" style="text-align: justify;">Umar M. Bawa was born on January 1, 1998, in Tsafe Local Government Area of Zamfara State, Nigeria. He began his political journey in 2012 under the mentorship of the late Engr. Aliyu Idris Lalo (Durbin Gusau). <br>Before the death of his mentor, Umar continued the political movement and became the Chairman of the Lalo Social Media Organization (LASMO) in 2017. <br>His dedication and leadership later led him to play an active role in the political movement of Hon. Kabiru Amadu (Mai Palace), known for its slogan “Allah Shi Zai Bamu.” During this campaign, he served as the State Vice Chairman. <br> In 2019, Umar was appointed as the Secretary of the Mai Palace Public Awareness Committee (MPAC), where he contributed to grassroots mobilization and political awareness. <br>By 2022, he joined the political campaign of Governor Bello Mohammed Matawalle, serving as the Secretary of Matawalle New Media Promoters, a group focused on digital political engagement and media strategy. <br>That same year, he also became the Secretary of the 7-7 For Matawalle 2 Times Organization, demonstrating his commitment to strengthening the governor’s re-election efforts. <br>In 2022, Umar took another leadership step by leading a new initiative under the Hon. Yazeed Shehu Danfulani (Commissioner of Commerce), where he served as the Director General of the Yazeed Enlightenment Forum. <br>From 2023 to the present, he has been at the forefront of establishing and leading the Yazeed Trustee Organization, a political and social group focused on community development, youth empowerment, and public enlightenment. <br>Umar M. Bawa is a young, dynamic, and visionary political leader from Zamfara State with extensive experience in media coordination, political mobilization, and youth engagement. Through his various leadership roles, he continues to inspire and empower young people to participate actively in politics and governance.</p>
+                                <!-- <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="Rabiatu Muhammad Buzuwa.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">RABI'ATU MUHAMMAD BUZUWA</font></h5>
+                                <p class="mb-3">STATE VICE CHAIRMAN - ZANNAH REPORTERS</p> 
+                                <p class="mb-4" style="text-align: justify;">Rabiu as an experienced Social Media Personnel in politics, she specialize in using digital platforms to amplify voices, promote transparency, and drive meaningful political conversations. She believe that social media is not just for trends it’s a platform for accountability, advocacy, and nation-building. Her mission is to bridge the gap between leaders and the people through credible, engaging, and impactful online communication.</p>
+                                <!-- <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="Najeeb Usman Maikotu.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">NAJEEB USMAN MAIKOTU</font></h5>
+                                <p class="mb-3">SECRETARY GENERAL</p> 
+                                <p class="mb-4" style="text-align: justify;">Najeeb Usman is social media enthusiast and political advocate driven by a passion for good governance and digital influence. Having worked in the political space for years, he have learned how to blend creativity with strategy to tell powerful stories that connect people and inspire change. His goal is to use the power of social media to highlight impactful leadership, promote civic participation, and build stronger communities online and offline.</p>
+                                <!-- <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="Anas Villa.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">ANAS VILLA</font></h5>
+                                <p class="mb-3">FINANCIAL SECRETARY</p> 
+                                <!-- <p class="mb-4" style="text-align: justify;">Professor Melody Ndidi Modebelu is a distinguished academic and Researcher in Educational Leadership and Human-Resources Management. Currently, she serves as the Executive Dean of the Faculty of Science Education at Michael Okpara University of Agriculture, Umudike, Nigeria. With expertise in Educational Administration, Transformative Teaching, Pedagogy and Environmental literacy, she has published extensively in reputable journals and edited several books. <br><br>A dedicated mentor, she has supervised over 35 Ph.D. candidates. Professor Modebelu is an active member of numerous academic, professional, and faith-based associations, including her role as a trustee of CACPE. Her commitment to Education, Research, and Community service has positioned her as a leading voice in Sustainable development and Climate action. A native of Anambra State, her leadership continues to inspire the next generation of Educators and Researchers, driving impactful change in education and environmental sustainability.</p>
+                                <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div><div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp">
+                        <div class="feature-item text-center p-4">
+                            <div class="mb-4">
+                                <!-- <i class="fas fa-dollar-sign fa-4x text-primary"></i> -->
+                            <img src="madawaki2.jpg" class="img-fluid teamImg" alt="Image">
+
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-3"><font color="green">ALIYU ABDULAZIZ MADAWAKI</font></h5>
+                                <p class="mb-3">CHIEF REPORTING OFFICER (CRO)</p> 
+                                <p class="mb-4" style="text-align: justify;">Aliyu is a dedicated Social Media Strategist and Political Communicator with extensive experience in managing digital campaigns, political branding, and public engagement. His expertise lies in crafting strategic online content that shapes public perception, promotes accountability, and strengthens the relationship between leaders and citizens. He's deeply committed to using social media as a tool for positive political advocacy, youth empowerment, and social transformation.</p>
+                                <!-- <a class="btn btn-secondary rounded-pill" href="#">Read More<i class="fas fa-arrow-right ms-2"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <!--<div class="container-fluid features overflow-hidden py-5" id="team">
+            <div class="container">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sub-style">
+                        <h5 class="sub-title text-primary px-3"><font color="green"><b>TEAM</b></font></h5>
+                    </div>
+                    <h1 class="display-5 mb-4"><font color="green">Meet Our Executive Management Team</font></h1>
+                    <p class="mb-0"></p>
+                </div>  
+                
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec1')">
+                        <img src="kemal10.jpg" alt="Executive 1">
+                        <div class="executive-details" id="exec1">
+                            <h3>PROF KEMAL YİLDİRİM</h3><br>HEAD, ADVISORY BOARD <br>
+                            <p style="text-align: justify;">Dr. Kemal Yildirim is a prolific scholar, author of 240 books, and a leading expert in human rights, cultural studies, and sustainable development. With dual PhDs in Comparative Politics and African Studies, and multiple post-doctorates in Human Rights, Immigration, and Latin American Studies, he brings a global perspective to climate action. Currently teaching at the European School of Law and Governance, Kosovo, he is also a Senior Researcher at Euro Med University. <br><br>Dr. Yildirim serves as President of the Beth Nahrain Mesopotamian Academy of Sciences and Arts and holds memberships in prestigious organizations like the Caribbean Academy of Sciences, UNESCO, and the World Society of Sustainable Energy Technologies. A film producer and polyglot, he integrates culture, education, and innovation to drive sustainable solutions. As head of the Advisory board, his expertise inspires transformative climate action and global collaboration.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec2')">
+                        <img src="jamila10.jpg" alt="Executive 2">
+                        <div class="executive-details" id="exec2">
+                            <h3>JAMILA IBRAHIM MOHAMMED</h3><br>HEAD, ADVISORY BOARD <br>
+                            <p style="text-align: justify;">Jamila Ibrahim Mohammad is an accomplished administrator and community development expert with extensive experience in the private health sector at state and LGA levels. A graduate of Usmanu Danfodiyo University, Sokoto, with a degree in Applied Chemistry, she has led and managed projects in Maternal and Neonatal Child Health (MNCH), Postpartum Family Planning Services (PPFP), Youth Adolescent Focus Groups, Seasonal Malaria Chemoprevention (SMC), and Community Engagement. <br><br>As a results-driven leader, Jamila excels in administrative coordination, team management, and strategic planning. Her ability to streamline operations, enhance efficiency, and foster collaboration makes her an invaluable asset in organizational leadership. She is highly adaptable, detail-oriented, and committed to fostering a productive and goal-driven work environment. <br> With a passion for sustainability and climate action, Jamila integrates health, environmental resilience, and community engagement, ensuring that administrative processes align with broader development goals for lasting impact.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec3')">
+                        <img src="blessing10.jpg" alt="Executive 3">
+                        <div class="executive-details" id="exec3">
+                            <h3>BLESSING TOKULAH ISAH</h3><br>EXECUTIVE ASSISTANT <br>
+                            <p style="text-align: justify;">Blessing Tokulah Isah is a highly organized and proactive professional with expertise in administration, project coordination, and strategic planning. As an Executive Assistant, she brings strong leadership, communication, and multitasking skills to support high-level decision-making and organizational efficiency.                                 She serves as the Project Manager for Revive Africa Initiative, a Non-Governmental Organization focused on impactful development, and is an advocate for positive change and good governance with the West Africa Youth Congress (WAYC). With a background in Industrial Chemistry from Bayero University, Kano (BUK), she has extensive experience in quality control and greenhouse farming.                                 <br><br>She is the MD/CEO of Green Orbit Innovation LTD, a social enterprise that engages in Agriculture and innovations for food security and social impact.                                 She is also the Hub Manager at Spark Lab Creativity and Innovation Hub in Nigeria, she fosters innovation and community growth. Passionate about humanitarianism, Blessing dedicates her time to community service, ensuring smooth operations, stakeholder engagement, and strategic execution in every role she takes on, driving meaningful change and impact.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec4')">
+                        <img src="nimisingha.png" alt="Executive 4">
+                        <div class="executive-details" id="exec4">
+                            <h3>DR. NIMISINGHA J. AMAKAMA</h3><br>DIRECTOR OF PROGRAMS <br>
+                            <p style="text-align: justify;">Nimisingha Amakama is an expert in Disaster and Emergency Response Management, with a strong background in environmental sustainability and climate adaptation. As the Director of Programs at CACPE, he leads strategic initiatives that drive climate action, disaster resilience, and environmental advocacy. His research expertise spans Environmental Modelling, Environmental Toxicology, Waste water Treatment, Air & Water Quality Assessment, and Climate Change Adaptation. <br><br>He holds a PhD in Information & Communication Sciences (Disaster & Emergency Response Management) from IMT Mines Alés, France, an MSc in Environmental Engineering from the University of Strathclyde, UK, and a B.Tech. in Chemical Engineering from Rivers State University, Nigeria. A two-time PTDF Overseas Scholarship awardee, he is currently researching Agent-Based Modelling to predict disaster response impacts in hospital emergency departments. <br>Nimisingha brings a wealth of knowledge to CACPE, advancing policies and programs that foster environmental sustainability, community resilience, and climate-conscious development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec5')">
+                        <img src="albert2.png" alt="Executive 5">
+                        <div class="executive-details" id="exec5">
+                            <h3>ALBERT G. UDOH</h3><br>DIRECTOR OF PARTNERSHIPS AND RESOURCE MOBILIZATION <br>
+                            <p style="text-align: justify;">Albert G. Udoh is a business transformation strategist, serial entrepreneur, and resource mobilization expert with a background in pharmacy, corporate leadership, and strategic development. As the Director of Partnerships & Resource Mobilization at CACPE, he leverages his vast experience across healthcare, technology, environmental sciences, and renewable energy to build strong alliances that drive impactful climate action and sustainability initiatives. <br>He is the founder of the Aduek Organization, leading multiple subsidiaries in healthcare, waste management, and environmental sustainability. An international facilitator, mentor, and keynote speaker, he actively contributes to policy advocacy, stakeholder engagement, and fundraising strategies. <br><br>Albert is a Fellow of the National Institute of Marketing of Nigeria (FNIMN) and a member of SEPAN, CACPE, Toastmasters International, and the Pharmaceutical Society of Nigeria. An alumnus of Lagos Business School and the University of Nigeria, Nsukka, he is deeply committed to advancing environmental transformation through strategic Partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec6')">
+                        <img src="abdullahi2.png" alt="Executive 6">
+                        <div class="executive-details" id="exec6">
+                            <h3>ABDULLAHI BIRI MOHAMMED</h3><br>DIRECTOR OF COMMUNICATIONS AND OUTREACH <br>
+                            <p style="text-align: justify;">Abdullahi Biri Mohammed is an Environmental Activist, climate advocate, and communications strategist with decades of experience in forestry, conservation, and community engagement. As Director of Communications & Outreach at CACPE, he leads awareness campaigns, stakeholder engagement, and public education on climate change adaptation and environmental sustainability. <br>A civil servant with the Yobe State Ministry of Environment, Abdullahi heads the Silviculture Unit, overseeing afforestation projects, seedling distribution, and deforestation monitoring. He has led community tree-planting initiatives, including the Great Green Wall project and Agro-Climate Resilience efforts. <br><br>He has volunteered with INGOs, MDAs, and CBOs, coordinating climate action programs. A member of FAN, WISON, NCF, CFA, and ISTF, he holds a B.Sc in Zoology (University of Maiduguri) and a PGD in Public Health. Passionate about advocacy and Public awareness, he drives CACPE’s mission by amplifying climate education and fostering Community resilience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive-team-container">
+                    <div class="executive-member" onclick="showDetails('exec7')">
+                        <img src="rashida2.png" alt="Executive 7">
+                        <div class="executive-details" id="exec7">
+                            <h3>RASHIDA SULAIMAN</h3><br>FINANCE AND ACCOUNTS OFFICER <br>
+                            <p style="text-align: justify;">Rashida Sulaiman is a Finance professional with expertise in Accounting, Financial management, and Budgeting. As the Finance & Accounts Officer at CACPE, she ensures transparency, efficiency, and accountability in financial operations, supporting the organization's climate action initiatives through effective resource management. <br>She has experience working with nonprofits, corporate finance, and development projects. Rashida specializes in financial reporting, grant management, and compliance, ensuring that funds are properly allocated and utilized for maximum impact. <br><br>With a keen eye for detail and analytical problem-solving skills, she plays a crucial role in financial planning, donor reporting, and internal audits. Passionate about sustainability and ethical finance, she integrates financial best practices with CACPE’s mission to drive climate resilience. Her dedication to fiscal responsibility and operational efficiency strengthens the organization's ability to deliver lasting environmental impact.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-center text-center">
+                    
+                </div>
+            </div>
+        </div> -->
+        <!-- Features End -->
+
+        
+
+         <div class="container-fluid service overflow-hidden pt-5" id="projects">
+            <div class="container">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sub-style">
+                        <h5 class="sub-title text-primary px-3"><font color="green">Projects</font></h5>
+                    </div>
+                    <h1 class="display-5 mb-4"><font color="green">Projects Completed</font></h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="projects">
+            <div class="container">
+                <!-- Project Slider -->
+                <div class="my-slider-container">
+                    <button id="prevProject" class="slider-btn prev-btn">&#10094; </button>
+                    <div id="projectSlider" class="my-slider">
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="climate-change">
+                            <img src="awareness.webp" alt="Climate Change Awareness Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Climate Change Awareness</h5>
+                                <p class="text-gray-700 text-justify">Empowering communities and schools, we inspire the next generation of environmental advocates through dynamic climate clubs and impactful workshops. Our programs equip educators, leaders, and community members with essential environmental knowledge, fostering awareness and action. By building environmental literacy, we promote sustainable practices, drive community engagement, and encourage collective efforts to address climate challenges, paving the way for a greener, more resilient future.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="tree-planting">
+                            <img src="Ramatpoly1.webp" alt="Tree Planting & Reforestation Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Tree Planting & Reforestation</h5>
+                                <p class="text-gray-700 text-justify">CACPE State Team teamed up with Ramat Polytechnic Student Union and Zulum Go Green organization to tackle climate change and promote environmental sustainability in Maiduguri, Borno State. We embarked on an ambitious tree planting and reforestation project, spreading awareness and inspiring action among our youth. Our impact? Over 500 trees planted, reducing carbon footprint and cleansing the air we breathe! We also empowered over 300 students and community members with knowledge on environmental conservation. Together, we're cultivating a brighter future for Nigeria - one tree, one community at a time.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="clean-energy">
+                            <img src="gdssbauchi2.webp" alt="Awareness on Clean Energy Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Awareness on Clean Energy</h5>
+                                <p class="text-gray-700 text-justify">Empowering Our Future Leaders with Clean Energy. At CACPE, we inspire a sustainable future for Nigeria's next generation. Our State Team partnered with Government Girls Secondary Schools Bauchi. We introduced clean energy initiatives and promoted environmental stewardship. Climate change is real; collective action is necessary. We trained 200+ students and teachers on clean energy benefits. Climate change awareness and sustainable practices were emphasized. This collaboration enhanced education through sustainability. Empowering Nigerian youth to become sustainable leaders.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="environmental-governance">
+                            <img src="ministryofenvironment2.webp" alt="Collaborative environmental Governance Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Collaborative environmental Governance</h5>
+                                <p class="text-gray-700 text-justify">Fostering Environmental Sustainability in Abia State. At CACPE, we promote collaborative governance for a greener Nigeria. Our State Team engaged with the Ministry of Environment, Abia State, to advance sustainable practices. We facilitated policy advocacy and stakeholder engagement, bringing together government, private sector, and civil society. Climate action requires collective effort. We emphasized environmental conservation, solid waste management, and erosion control. This partnership enhanced environmental governance and sustainability awareness. Empowering Abia State residents to drive positive change.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="youth-empowerment">
+                            <img src="unizik2.webp" alt="Youth Environmental Empowerment Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Youth Environmental Empowerment</h5>
+                                <p class="text-gray-700 text-justify">Empowering Students, Restoring the Environment, CACPE partners with UNIZIK Demonstration Secondary School Awka to enhance environmental sustainability, mitigate climate change. We reclaim degraded land, promote eco-friendly practices and planted 200+ trees. We improved school landscape and biodiversity, enhanced environmental awareness and contributed to climate change mitigation, empowering Anambra's youth to drive positive change.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="climate-education">
+                            <img src="katsina_college2.webp" alt="Climate Education Empowerment Project Image">
+                            <img src="katsina_college.webp" alt="Climate Education Empowerment Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Climate Education Empowerment</h5>
+                                <p class="text-gray-700 text-justify">Empowering Katsina Communities through Climate Education, CACPE conducted an environmental literacy workshop at Government College Katsina to enhance climate resilience through education and build capacity for sustainable practices. 200+ community members, 50+ educators, 20+ local leaders, and school staff participated. We discussed on climate change impacts and mitigation, sustainable agriculture, waste management & recycling and environmental advocacy. We enhanced environmental awareness among 300+ participants, community-led initiatives established and partnerships with local stakeholders strengthened.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="youth-leadership">
+                            <img src="treeplanting3.webp" alt="Youth Climate Leadership Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Youth Climate Leadership</h5>
+                                <p class="text-gray-700 text-justify">Supporting Abia's Youth for a Greener Future. At CACPE, we're cultivating environmental stewards among Nigeria's next generation. Our Abia State Team established climate clubs at Santa Cruz Secondary School, inspiring students to become eco-leaders. We educated and empowered the youth on climate action to build capacity for sustainable practices and environmental advocacy. We trained 200+ students on climate change mitigation, established school and community climate clubs.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="strategic-partnership">
+                            <img src="researchanddata1.webp" alt="Strategic Climate Partnership with American Space Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Strategic Climate Partnership with American Space</h5>
+                                <p class="text-gray-700 text-justify">Scaling Climate Action through Strategic Partnerships. At CACPE, we're amplifying climate impact through collaborative efforts. Our Bauchi State Team forged a strategic partnership with American Space, convening key stakeholders to drive climate action. The partnership was aimed to enhance collective impact on climate mitigation and adaptation to foster synergy among stakeholders for local, national, regional, and global climate action. We engaged 50+ stakeholders in environment (ShE) sector, we facilitated workshops on climate best practices and principles, established a climate action network for knowledge sharing and developed joint initiatives for sustainable development resulted to strengthened partnerships with ShE stakeholders, enhanced capacity for climate action among stakeholders and amplified climate advocacy and awareness in Bauchi State.</p>
+                            </div>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative" data-project-id="climate-collaboration">
+                            <img src="cacpe&acresal.webp" alt="Celebrating Climate Collaboration Project Image">
+                            <img src="cacpe&acresal2.webp" alt="Celebrating Climate Collaboration Project Image">
+                            <div class="my-content-overlay rounded-lg text-gray-800">
+                                <h5 class="text-xl font-semibold text-green-600 mb-2">Celebrating Climate Collaboration</h5>
+                                <p class="text-gray-700 text-justify">At CACPE we honour exceptional Partnership, as part of our mission, we value collaborative efforts driving climate action. Our Katsina State Team presented certificates of appreciation to ACReSAL staff, celebrating a fruitful partnership. We recognized ACReSAL's dedication to climate action, acknowledged joint initiatives' success and strengthened ties with key stakeholders. Throughout the partnership, we've successfully enhanced climate resilience in Katsina State, improved capacity building for sustainable land management and strengthened partnerships for environmental conservation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="nextProject" class="slider-btn next-btn"> &#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid service overflow-hidden pt-5" id="partners">
+            <div class="container">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sub-style">
+                        <h5 class="sub-title text-primary px-3"><font color="green">Meet Our Partners</font></h5>
+                    </div>
+                    <h1 class="display-5 mb-4"><font color="green">Our Partners</font></h1>
+                    <!-- <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="partners">
+            <div class="container">
+                <!-- Partner Slider (New Unique IDs) -->
+                <div class="my-slider-container">
+                    <button id="prevPartnerSlider" class="slider-btn prev-btn">&#10094; </button>
+                    <div id="partnersSlider" class="my-slider">
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner1.jpg" alt="partner_1"></h3>
+                            <a href=""><p style="color: #08d21c;"><b>ZANNAN BUNGUDU MEDIA CONSULTANT</b></p></a>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner2.jpg" alt="partner_2"></h3>
+                            <a href=""><p style="color: #08d21c;"><b>ZANNAN BUNGUDU MEDIA CONNECT</b></p></a>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner3.jpg" alt="partner_3"></h3>
+                            <a><p style="color: #08d21c;"><b>ZANNAN BUNGUDU MEDIA ORGANIZATION</b></p></a>
+                        </div>
+                        <!--<div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner4.png" alt="partner_4"></h3>
+                            <a><p style="color: #08d21c;"><b>Young Advocates for a Sustainable & Inclusive Future</b></p></a>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner5.png" alt="partner_5"></h3>
+                            <a><p style="color: #08d21c;"><b>Green Team Academy</b></p></a>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner6.png" alt="partner_6"></h3>
+                            <a><p style="color: #08d21c;"><b>GECCI</b></p></a>
+                        </div>
+                        <div class="my-slide-item rounded-lg shadow-md overflow-hidden relative">
+                            <h3><img src="partner7.jpg" alt="partner_7"></h3>
+                            <a><p style="color: #08d21c;"><b>SETimpact</b></p></a>
+                        </div>-->
+                    </div>
+                    <button id="nextPartnerSlider" class="slider-btn next-btn"> &#10095;</button>
+                </div>
+            </div>
+        </div>
+                                                            
+                    
+        <!-- Contact Start -->
+        <div class="container-fluid contact overflow-hidden pb-5" id="contacts">
+            <div class="container py-5">
+                <div class="office pt-5">
+                    <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="sub-style">
+                            <h5 class="sub-title text-primary px-3"><font color="green">Contact Us</font></h5>
+                        </div>
+                        <h1 class="display-5 mb-4"><font color="green">To join Us or for more Information, Contact Us @</font></h1>
+                            
+                    </div>
+                    <center><button class="volunteer"><a href="tel:+2347059248576" class="h4 text-white mb-0"><font color="green"><b>Click here to Join Us</b></font></a></button></center><br>
+                    <center>
+                        <div class="contact-card">
+                            <p class="phone"><a href="tel:+2347059248576"><b>+2347059248576</b></a></p>
+                            <p class="phone"><a href="tel:+2347061832607"><b>+2347061832607</b></a></p>
+                            <p class="phone"><a href="tel:+2348104943444"><b>+2348104943444</b></a></p>
+
+                            <p><a href="mailto:xxxxxx@gmail.com"><b>xxxxxxxx@gmail.com</b></a></p>
+                            <p><b>Gusau Metropolis, Zamfara State, Nigeria.</b></p>
+                        </div>
+                    </center><br>
+                    <center>
+                    <iframe 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62399.894765610254!2d6.6694736!3d12.18085045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11b143514ddead5b%3A0x52d8f3793a2fef6c!2sGusau%20632101%2C%20Zamfara!5e0!3m2!1sen!2sng!4v1761370970494!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!--src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.3956694947256!2d8.508287074823562!3d11.947084188281949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae8100551fda27%3A0x27847e890d62e41f!2sCACPE-%20Civil%20Alliance%20for%20Climate%20Protection%20and%20Education!5e0!3m2!1sen!2sng!4v1737958679754!5m2!1sen!2sng" 
+                    width="350" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>-->
+                    </center>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5" style="width: 100%;">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-secondary mb-4"><font color="white"><b>Contact Info</b></font></h4>
+                            <a href=""><i class="fas fa-envelope me-2"></i> XXXXX@gmail.com</a>
+                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> Gusau Metropolis, Zamfara State, Nigeria.</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +2347059248576, +2347061832607, +2348104943444</a>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-secondary me-2"></i>
+                                <!-- Facebook -->
+                                <a class="btn mx-1" href="https://www.facebook.com/profile.php?id=61582350734651/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <!-- TikTok -->
+                                <a class="btn mx-1" href="https://www.tiktok.com/@zannahreporter?_t=ZS-90jzmssEaS8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                                <!-- X (Twitter) -->
+                                <a class="btn mx-1" href="https://x.com/ReporterZa84044?t=5DCrKRXa_AC_hR4yVD5V4g&s=09" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></i></a>
+                                <!-- Instagram -->
+                                <a class="btn mx-1" href="https://www.instagram.com/zannah_reporters_?igsh=MXExYTd2Nnoybzd4cg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-secondary mb-4"><font color="white"><b>Opening Time</b></font></h4>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0"><font color="white"><b>Mon - Friday:</b></font></h6>
+                                <p class="text-white mb-0">09.00 am to 07.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0"><font color="white"><b>Saturday:</b></font></h6>
+                                <p class="text-white mb-0">10.00 am to 05.00 pm</p>
+                            </div>
+                            <!-- <div class="mb-3">
+                                <h6 class="text-muted mb-0"><font color="white"><b>Vacation:</b></font></h6>
+                                <p class="text-white mb-0">Every Public Holiday is our vacation</p>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+        <!-- Copyright Start -->
+        <div class="last">
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-white"><a href="https://zannahreporters.org/" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>ZANNAH REPORTERS</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-white">
+                        
+                        Designed By <a class="border-bottom text-white" href="https://godwin015.github.io/gaadwhin/index.html#contact">Leema Web Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Copyright End -->
+
+
+        <!-- 
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        Back to Top -->
+        <div class="theme-toggle-btn">
+            <label class="toggle-switch">
+                <input type="checkbox" id="theme-switcher">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-icon">🌞</span>
+        </div>
+        
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="wow.min.js"></script>
+        <script src="easing.min.js"></script>
+        <script src="waypoints.min.js"></script>
+        <script src="counterup.min.js"></script>
+        <script src="owl.carousel.min.js"></script>
+    
+
+        <!-- Template Javascript -->
+        <script src="main.js"></script>
+        <script>
+            // Select elements for theme switcher
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+
+            // Function to update the icon based on theme
+            const updateIcon = () => {
+                themeIcon.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+            };
+
+            // Check for saved theme preference and apply
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                themeSwitcher.checked = true;
+                updateIcon();
+            }
+
+            // Toggle theme and update icon on change
+            themeSwitcher.addEventListener('change', () => {
+                body.classList.toggle('dark-mode');
+                updateIcon();
+                // Save preference to localStorage
+                localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            });
+            
+            // Reusable function to initialize a slider
+            function initializeSlider(sliderId, prevBtnId, nextBtnId) {
+                const slider = document.getElementById(sliderId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+                const slides = slider ? slider.querySelectorAll('.my-slide-item') : [];
+
+                let activeSlideContent = null; // To keep track of the currently active content overlay for this slider
+
+                // Function to toggle content visibility
+                const toggleContent = (slide) => {
+                    const contentOverlay = slide.querySelector('.my-content-overlay');
+
+                    // If there's an active slide content and it's not the one just clicked, hide it
+                    if (activeSlideContent && activeSlideContent !== contentOverlay) {
+                        activeSlideContent.classList.remove('active');
+                    }
+
+                    // Toggle the 'active' class for the clicked slide's content
+                    contentOverlay.classList.toggle('active');
+
+                    // Reset scroll position to top when activated/deactivated
+                    if (contentOverlay.classList.contains('active')) {
+                        contentOverlay.scrollTop = 0; // Scroll to the top when content is revealed
+                        activeSlideContent = contentOverlay;
+                    } else {
+                        activeSlideContent = null;
+                    }
+                };
+
+                // Add click event listener to each slide in this slider
+                slides.forEach(slide => {
+                    slide.addEventListener('click', () => {
+                        toggleContent(slide);
+                    });
+                });
+
+                // Slider navigation functionality
+                if (slider && prevBtn && nextBtn) {
+                    const scrollSlider = (direction) => {
+                        const slideWidth = slides.length > 0 ? slides[0].offsetWidth : 0;
+                        const scrollAmount = slideWidth;
+
+                        if (direction === 'next') {
+                            slider.scrollLeft += scrollAmount;
+                            // Loop back to the beginning if at the end
+                            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+                                slider.scrollLeft = 0;
+                            }
+                        } else if (direction === 'prev') {
+                            slider.scrollLeft -= scrollAmount;
+                            // Loop to the end if at the beginning
+                            if (slider.scrollLeft <= 5) {
+                                slider.scrollLeft = slider.scrollWidth;
+                            }
+                        }
+
+                        // Hide any active content when navigating slides
+                        if (activeSlideContent) {
+                            activeSlideContent.classList.remove('active');
+                            activeSlideContent = null;
+                        }
+                    };
+
+                    // Add click event listeners to the navigation buttons
+                    prevBtn.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent slide click event from firing
+                        scrollSlider('prev');
+                    });
+                    nextBtn.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent slide click event from firing
+                        scrollSlider('next');
+                    });
+                } else {
+                    console.error(`Slider elements for ${sliderId} not found.`);
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Initialize the Projects slider
+                initializeSlider('projectSlider', 'prevProject', 'nextProject');
+
+                // Initialize the Partners slider with its new unique IDs
+                initializeSlider('partnersSlider', 'prevPartnerSlider', 'nextPartnerSlider');
+            });
+
+            // This function seems to be for another section (executive details) and is not related to the sliders
+            function showDetails(id) {
+                document.querySelectorAll('.executive-details').forEach(detail => {
+                    detail.style.display = 'none';
+                });
+                document.getElementById(id).style.display = 'block';
+            }
+            const image = document.getElementById("myImage");
+                image.addEventListener("click", () => {
+                image.classList.toggle("rotated");
+            });
+        </script>
+    </html>
